@@ -11,10 +11,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import org.json.JSONObject;
 import org.simple.net.base.Request;
 import org.simple.net.core.RequestQueue;
 import org.simple.net.core.SimpleNet;
 import org.simple.net.entity.MultipartEntity;
+import org.simple.net.requests.JsonRequest;
 import org.simple.net.requests.MultipartRequest;
 
 import java.io.ByteArrayOutputStream;
@@ -81,14 +83,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         // 返回JSONObject的请求
-        //        JsonRequest jsonRequest  = new JsonRequest(HttpMethod.GET, "服务器地址", new RequestListener<JSONObject>() {
-        //
-        //            @Override
-        //            public void onComplete(int stCode, JSONObject response, String errMsg) {
-        //
-        //            }
-        //
-        //        }) ;
+        JsonRequest jsonRequest  = new JsonRequest(Request.HttpMethod.GET, "服务器地址", new Request.RequestListener<JSONObject>() {
+
+            @Override
+            public void onComplete(int stCode, JSONObject response, String errMsg) {
+
+            }
+
+        }) ;
     }
 
     private byte[] bitmapToBytes(Bitmap bitmap) {
